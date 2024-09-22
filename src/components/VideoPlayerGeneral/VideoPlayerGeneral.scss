@@ -1,0 +1,68 @@
+@import './../../styles/partials/_mixins.scss';
+@import './../../styles/partials/_typography.scss';
+@import './../../styles/partials/_variables.scss';
+
+.main-video__player-wrapper {
+    background-color: $brainflix-darkblack;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.main-video__player {
+    width: 100%;
+    object-fit: cover;
+
+    @include tablet {
+        object-fit: contain;
+        width: calc(100% - 4.5rem);
+        
+    }
+
+    @include desktop {
+        width: 67%;
+    }
+    
+  
+}
+
+.main-video__content {
+    padding: 1rem;
+}
+
+.main-video__info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    border: $border;
+    border-style: solid none;
+    color: $silver;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+}
+
+.main-video__upload {
+    @include tablet {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.main-video__author {
+    font-weight: 700;
+    color: $brainflix-darkblack;
+}
+
+.main-video__stats {
+    @include tablet {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.main-video__views, .main-video__likes {
+    display: flex;
+    gap: 0.5rem;
+}
