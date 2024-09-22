@@ -1,6 +1,6 @@
-import "./VideoPlayerDetails.scss";
+import "./VideoDetails.scss";
 
-const VideoPlayerDetails = ({ title, channel, description, views, likes, timestamp}) => {
+const VideoDetails = ({ title, channel, description, views, likes, timestamp}) => {
     const formattedDate = new Date(timestamp).toLocaleString("en-US", { year: "numeric", month: "numeric", day: "numeric" })
 
     return (
@@ -28,4 +28,4 @@ const VideoPlayerDetails = ({ title, channel, description, views, likes, timesta
     );
 };
 
-export default VideoPlayerDetails;
+export default VideoDetails;

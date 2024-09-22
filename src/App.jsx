@@ -3,8 +3,9 @@ import './App.scss'
 import Header from './components/Header/Header'
 import VideoPlayerGeneral from './components/VideoPlayerGeneral/VideoPlayerGeneral'
 import videos from './data/video-details.json'
-import VideoPlayerDetails from './components/VideoPlayerDetails/VideoPlayerDetails'
+import VideoDetails from './components/VideoDetails/VideoDetails'
 import VideoList from './components/VideoList/VideoList'
+import Comments from './components/Comments/comments'
 
 function App() {
   const [video, setVideo] = useState(videos[0])
@@ -29,7 +30,9 @@ function App() {
       duration={video.duration}
       video={video.video}
       timestamp={video.timestamp}/>
-      <VideoPlayerDetails
+
+      <div className="app--tablet">
+      <VideoDetails
       title={video.title} 
       channel={video.channel}
       description={video.description}
@@ -37,9 +40,12 @@ function App() {
       likes={video.likes}
       timestamp={video.timestamp}
       />
+      </div>
       <VideoList
       videos={restVideos}
       switchNewVideo={nextVideo}/>
+      <Comments
+      comments={video.comments}/>
     </>
   )
 }
