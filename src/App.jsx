@@ -1,33 +1,56 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
+import Header from './components/Header/Header'
+import VideoPlayerGeneral from './components/VideoPlayerGeneral/VideoPlayerGeneral'
+import videos from './data/video-details.json'
+import VideoDetails from './components/VideoDetails/VideoDetails'
+import VideoList from './components/VideoList/VideoList'
+import Comments from './components/Comments/comments'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [video, setVideo] = useState(videos[0])
+  const restVideos = videos.filter((restVid) => {
+    return restVid.id !== video.id
+  })
+
+  const nextVideo = (id) => {
+    const foundVideo = videos.find((video) => {
+      return video.id === id;
+    });
+
+    setVideo(foundVideo);
+  };
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Header />
+      <VideoPlayerGeneral
+        image={video.image}
+        duration={video.duration}
+        video={video.video}
+        timestamp={video.timestamp} />
+      <div className='after-video'>
+
+        <div className='content-left'>
+              <VideoDetails
+                title={video.title}
+                channel={video.channel}
+                description={video.description}
+                views={video.views}
+                likes={video.likes}
+                timestamp={video.timestamp}
+              />
+            
+            <Comments
+              comments={video.comments} />
+          </div>
+          <VideoList
+            videos={restVideos}
+            switchNewVideo={nextVideo} />
+
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

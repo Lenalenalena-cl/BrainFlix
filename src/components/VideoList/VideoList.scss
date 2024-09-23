@@ -1,0 +1,40 @@
+@import './../../styles/partials/_mixins.scss';
+@import './../../styles/partials/_typography.scss';
+@import './../../styles/partials/_variables.scss';
+
+
+.video-list {
+    padding: 1rem 1rem 2rem;
+
+    @include tablet {
+        padding: 1rem 1rem 2rem;
+
+    }
+
+    @include desktop{
+        border-left: $border;
+        width: 85rem;
+     
+    }
+
+
+    &__title {
+        color: $silver;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .8125rem;
+        padding-bottom: 0.75rem;
+
+
+        @include tablet {
+            font-size: .75rem;
+            padding-bottom: 1rem;
+
+        }
+        
+
+        
+    }
+
+    
+}
