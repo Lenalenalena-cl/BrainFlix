@@ -10,17 +10,20 @@ const Comments = ({ comments }) => {
                 <form className="comments-section__form" action="submit">
                     <label className="comments-section__label" htmlFor="comment">Join the Conversation</label>
                     <div className="comment-section__add-comment">
-                        <textarea className="comments-section__input" name="comment" placeholder="Add a new comment"></textarea>
+                        <input className="comments-section__input" placeholder="Add a new comment"></input>
                         <button className="comments-section__button-submit">Comment</button>
                     </div>
                 </form>
             </div>
             <div className="comments-section__list">
-                <Comment
-                name={comments.name}
-                 comment={comments.comment}
-                  timestamp={comments.timestamp}
-                  />
+                {comments.map((comment) => (
+                    <Comment
+                        key={comment.id}
+                        name={comment.name}
+                        comment={comment.comment}
+                        timestamp={comment.timestamp}
+                    />
+                ))}
             </div>
         </div>
     );
