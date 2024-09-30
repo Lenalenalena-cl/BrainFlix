@@ -1,56 +1,62 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.scss'
 import Header from './components/Header/Header'
 import VideoPlayerGeneral from './components/VideoPlayerGeneral/VideoPlayerGeneral'
 import videos from './data/video-details.json'
 import VideoDetails from './components/VideoDetails/VideoDetails'
 import VideoList from './components/VideoList/VideoList'
-import Comments from './components/Comments/comments'
+import Comments from './components/CommentSection/CommentSection'
+import VideoPage from "./pages/VideoPage/VideoPage";
+import UploadPage from "./pages/UploadPage/UploadPage";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 function App() {
-  const [video, setVideo] = useState(videos[0])
-  const restVideos = videos.filter((restVid) => {
-    return restVid.id !== video.id
-  })
-
-  const nextVideo = (id) => {
-    const foundVideo = videos.find((video) => {
-      return video.id === id;
-    });
-
-    setVideo(foundVideo);
-  };
 
 
   return (
     <>
-      <Header />
-      <VideoPlayerGeneral
-        image={video.image}
-        duration={video.duration}
-        video={video.video}
-        timestamp={video.timestamp} />
-      <div className='after-video'>
+      <BrowserRouter>
+      <Header />  
+      <Routes>
+        <Route path="/" element={<VideoPage />}>
+              <Route path="/videos/:videoId" element={<VideoPage />} />  
+        </Route>
+        <Route path="/upload" element={<UploadPage/>} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
+ 
+      {/* <Header />  
 
-        <div className='content-left'>
-              <VideoDetails
-                title={video.title}
-                channel={video.channel}
-                description={video.description}
-                views={video.views}
-                likes={video.likes}
-                timestamp={video.timestamp}
-              />
-            
-            <Comments
-              comments={video.comments} />
-          </div>
-          <VideoList
-            videos={restVideos}
-            switchNewVideo={nextVideo} />
+      <MainVideoPlayer
+        image={mainVideo.image}
+        video={mainVideo.video}
+        timestamp={mainVideo.timestamp}
+      />
+      
+      <div className="app--desktop">
+        <div className="app--tablet">
+          <MainVideoDetails 
+          title={mainVideo.title}
+          channel={mainVideo.channel}
+          description={mainVideo.description}
+          views={mainVideo.views}
+          likes={mainVideo.likes}
+          timestamp={mainVideo.timestamp}
+          />
 
-        
-      </div>
+          <CommentsSection
+            comments={mainVideo.comments}
+          />
+        </div>
+    
+        <VideoList
+          videos={filteredVideos}
+          changeMainVideo={changeMainVideo}
+        />
+
+        </div> */}
     </>
   )
 }

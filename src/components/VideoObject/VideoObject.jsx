@@ -1,19 +1,19 @@
-import './VideoObject.scss'
-const VideoObject = ({id, image, title, channel,switchNewVideo}) =>{
+import './VideoObject.scss';
+
+import { Link } from 'react-router-dom';
+
+const VideoItem = ({ id, image, title, channel }) => {
     return (
-        <li 
-            className="video-item"
-            onClick={() => {
-                switchNewVideo(id)
-            }}
-        >
-            <img className="video-item__img" src={image} alt={`Thumbnail image of ${title} by ${channel}`} />
-            <div className='video-item__text'>
-                <h4 className="video-item__title">{title}</h4>
-                <p className="video-item__author">{channel}</p>
-            </div>
+        <li >
+            <Link to={`/videos/${id}`} className="video-item">
+                <img className="video-item__img" src={image} alt={`Thumbnail image of ${title} by ${channel}`} />
+                <div className='video-item__text'>
+                    <h4 className="video-item__title">{title}</h4>
+                    <p className="video-item__author">{channel}</p>
+                </div>
+             </Link>
         </li>
-    )
+    );
 }
 
-export default VideoObject
+export default VideoItem;
