@@ -1,7 +1,7 @@
 import './VideoContent.scss';
 
 import VideoDetails from './../../components/VideoDetails/VideoDetails';
-import CommentsSection from './../../components/CommentSection/CommentSection';
+import CommentSection from './../../components/CommentSection/CommentSection';
 import VideoList from './../../components/VideoList/VideoList';
 
 import { getVideoEndpoint } from "../../utils/utils";
@@ -43,7 +43,7 @@ const VideoContent = ({selectedVideoId, filteredVideos}) => {
     
           />
 
-          <CommentsSection
+          <CommentSection
             mainVideo={mainVideo}
             selectedVideoId={selectedVideoId}
             setMainVideo={setMainVideo}

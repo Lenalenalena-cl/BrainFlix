@@ -8,7 +8,7 @@ import axios from "axios";
 
 import { postComment } from '../../utils/utils.js';
 
-const CommentsSection = ({mainVideo, selectedVideoId, setMainVideo}) => {
+const CommentSection = ({mainVideo, selectedVideoId, setMainVideo}) => {
 
     const [ comment, setComment ] = useState("")
 
@@ -64,4 +64,4 @@ const CommentsSection = ({mainVideo, selectedVideoId, setMainVideo}) => {
     );
 }
 
-export default CommentsSection;
+export default CommentSection;

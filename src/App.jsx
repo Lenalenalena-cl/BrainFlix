@@ -26,37 +26,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
- 
-      {/* <Header />  
 
-      <MainVideoPlayer
-        image={mainVideo.image}
-        video={mainVideo.video}
-        timestamp={mainVideo.timestamp}
-      />
-      
-      <div className="app--desktop">
-        <div className="app--tablet">
-          <MainVideoDetails 
-          title={mainVideo.title}
-          channel={mainVideo.channel}
-          description={mainVideo.description}
-          views={mainVideo.views}
-          likes={mainVideo.likes}
-          timestamp={mainVideo.timestamp}
-          />
-
-          <CommentsSection
-            comments={mainVideo.comments}
-          />
-        </div>
-    
-        <VideoList
-          videos={filteredVideos}
-          changeMainVideo={changeMainVideo}
-        />
-
-        </div> */}
     </>
   )
 }
