@@ -1,55 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import './styles/partials/mixins.scss';
+@import './styles/partials/typography.scss';
+@import './styles/partials/variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $white;
+    color: $brainflix-black;
+    font-family: 'Avenir Next LT Pro', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+button {
+    border: none;
+    font-family: inherit;
+    border-radius: .25rem; 
+    height: 2.5rem;
+    padding: 0 2rem;
+    font-size: .75rem;
+    font-weight: $demi;
+    text-transform: uppercase;
+    background-color: $brainflix-blue !important;
+    color: $white !important;
+
+    &:hover {
+        background-color: $brainflix-darkblue !important;
+    }
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input, textarea {
+    border: $border; 
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: $alabaster !important;
+    color: $brainflix-black;
+
+    &:focus  {
+        border: .125rem solid $brainflix-blue !important;
+        background-color: $white !important;
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $brainflix-black !important;
+        font-size: .75rem !important;
+        
+        @include tablet {
+          font-size: 0.875rem;
+        }
+    }   
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.content-left{
-  width: 50%;
-}
-
-.after-video{
-  display: flex;
-  justify-content: space-between;
-}
-
-.video-details-container {
-  width: 40%;
+ul, li, a {
+    list-style-type: none;
+    text-decoration: none;
 }
