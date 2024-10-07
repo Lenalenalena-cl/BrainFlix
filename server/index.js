@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use("/videos", videosRoutes);
 
-//get from /videos, must return selected amount of information
+
 app.get("/videos", function (req, res) {
   res.send("Welcome to the video API Server");
 });
